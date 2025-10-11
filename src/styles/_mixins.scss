@@ -1,0 +1,12 @@
+@import '../styles/functions.scss';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin set-typography($fs:12, $lh:16) {
+	font-size: rem(#{$fs});
+	line-height: rem(#{$lh});
+}
