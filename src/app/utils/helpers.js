@@ -19,25 +19,29 @@ export const portalsLogos = [
         'name': 'applyUniNow',
         'logo': applyUniNow,
         'url': 'https://applyuninow.com/',
-        'width': '240',
+        'width': '200',
+        'mwidth': '100',
     },
     {
         'name': 'applyUniLoans',
         'logo': applyUniLoans,
         'url': 'https://applyuniloans.com/',
-        'width': '270',
+        'mwidth': '118',
+        'width': '230',
     },
     {
         'name': 'applyUniHomes',
         'logo': applyUniHomes,
         'url': 'https://applyunihomes.com/',
-        'width': '290',
+        'mwidth': '105',
+        'width': '250',
     },
     {
         'name': 'applyUniJobs',
         'logo': applyUniJobs,
         'url': 'https://applyunijobs.com/',
-        'width': '230',
+        'mwidth': '124',
+        'width': '190',
     }
 ]
 
@@ -137,8 +141,16 @@ export const footerConnect = [
     'Quick Question?', '+44 773 45 66688 UK', '+91 970 45 66688 IN', 'support@applyuninow.com'
 ]
 
+export const monthArray = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+]
+
+export const yearArray = [
+    '2026', '2027', '2028'
+]
+
 export const uniservices = [
-    'Admissions', 'Loans', 'Accomodations', 'Part-time Jobs'
+    'Admissions', 'Loans', 'Accomodations', 'Part-time Jobs', 'Graduate Jobs'
 ];
 
 export const studyLevel = [

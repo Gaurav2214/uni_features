@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 import {portalsLogos} from '../../app/utils/helpers';
+import { usePortal } from '../context/PortalContext';
 
 const Header = () => {
+    const portalConfig = usePortal();
+
     return (
         <header>
             <div className="logo">
@@ -16,7 +19,7 @@ const Header = () => {
             <div className="portals-logo">
                 {portalsLogos.map((item) => (
                     <a key={item?.name} href={item?.url} target="_black">
-                        <Image src={item?.logo} alt={item?.name} width={item?.width} height="60" />
+                        <Image src={item?.logo} alt={item?.name} width={portalConfig?.deviceType == 'mobile' ? item?.mwidth : item?.width} height="60" />
                     </a>
                 ))}
             </div>

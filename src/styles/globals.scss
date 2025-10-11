@@ -8,7 +8,11 @@ body {
   background: url(../../public/images/uni-bg.svg);
   margin: 0;
   padding: 0;
-
+  overflow-x: hidden;
+  @include breakpointmax($end-small){
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .container {
@@ -24,25 +28,44 @@ header {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  @include breakpointmax($end-small){
+    gap: 26px;
+  }
 
   .sub-head {
     color: #fff;
-    @include set-typography(20, 30);
+    @include set-typography(12, 20);
     font-weight: 500;
-
     span {
       font-weight: 700;
+    }
+    @include breakpointmax($end-small){
+      width: 50%;
+      text-align: center;
     }
   }
 
   .portals-logo {
     display: flex;
     flex-direction: row;
-    gap: rem(50);
+    gap: rem(70);
+    @include breakpointmax($end-small){
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 50px;
+      row-gap: 30px;
+      a{
+        img{
+          height: auto;
+        }
+      }
+    }
   }
 }
 
 footer {
+  margin-top: rem(70);
+
   .footer-features {
     display: flex;
     flex-direction: row;
@@ -57,11 +80,26 @@ footer {
 
       p {
         color: #fff;
-        @include set-typography(15, 22);
+        @include set-typography(13, 20);
         font-weight: 400;
         margin: 0;
         text-align: center;
       }
+      @include breakpointmax($end-small){
+        gap: rem(10);
+        width: 22%;
+        img{
+          width: rem(20);
+          height: rem(20);
+        }
+        p{
+          @include set-typography(10, 15);
+        }
+      }
+    }
+    @include breakpointmax($end-small){
+      flex-wrap: wrap;
+      gap: rem(25);
     }
   }
 
@@ -75,7 +113,19 @@ footer {
     a {
       color: #fff;
       text-decoration: none;
-      @include set-typography(12, 18);
+      @include set-typography(13, 20);
+    }
+    @include breakpointmax($end-small){
+      flex-wrap: wrap;
+      row-gap: rem(12);
+      column-gap: rem(20);
+      text-align: center;
+      a{
+        @include set-typography(8, 15);
+        &:nth-child(1), &:nth-child(2), &:nth-child(3){
+          width: 25%;
+        }
+      }
     }
   }
 
@@ -91,6 +141,17 @@ footer {
       text-decoration: none;
       @include set-typography(12, 18);
     }
+    @include breakpointmax($end-small){
+      flex-wrap: wrap;
+      column-gap: rem(16);
+      row-gap: rem(8);
+      div{
+        text-align: center;
+        &:first-child{
+          width: 100%;
+        }
+      }
+    }
   }
 
   .tag_line {
@@ -105,7 +166,7 @@ footer {
 
 .glass-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 14px;
   isolation: isolate;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
@@ -113,50 +174,133 @@ footer {
   -webkit-backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   height: 40px;
+  display: flex;
+
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 0;
-    border-radius: 20px;
+    border-radius: 14px;
     box-shadow: inset 0 0 20px -5px rgba(255, 255, 255, 0.6);
     background: rgba(255, 255, 255, 0.05);
   }
+
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -1;
-    border-radius: 28px;
+    border-radius: 20px;
     backdrop-filter: blur(8px);
     filter: url(#glass-distortion);
     isolation: isolate;
   }
+
+  .select-dropdown {
+    width: 190px;
+    height: -webkit-fill-available;
+    position: relative;
+    @include breakpointmax($end-small){
+      width: rem(140);
+    }
+
+    ul {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      width: -webkit-fill-available;
+      top: 38px;
+      max-height: 330px;
+      z-index: 9;
+      overflow: hidden;
+      overflow-y: auto;
+
+      li {
+        @include set-typography(12, 20);
+        padding: rem(10) rem(12);
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+        text-align: center;
+
+        &:hover {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  &.glass-card-2{
+    .select-dropdown{
+      width: rem(95);
+      svg{
+        width: rem(52);
+      }
+      @include breakpointmax($end-small){
+        width: rem(70);
+      }
+    }
+  }
 }
 
-.enquiry-form{
+.enquiry-form {
   margin: rem(30) 0;
   display: flex;
   justify-content: center;
-  &--container{
+  flex-direction: column;
+  align-items: center;
+
+  &--container {
     display: flex;
     flex-direction: column;
-    gap: rem(10);
+    gap: rem(16);
     justify-content: center;
     align-items: center;
-    .btn{
+
+    .btn {
       width: rem(190);
       color: #fff;
       background: rgba($color: #000000, $alpha: 1.0);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error {
+      color: $primary-color;
+      position: absolute;
+      bottom: -25px;
+      font-size: 10px;
+    }
+
+    .consent {
+      color: #fff;
+      @include set-typography(10, 16);
+      margin: 15px 0 10px 0;
+      display: flex;
+      flex-direction: row;
+      gap: rem(6);
+      align-items: center;
+
+      input {
+        background: #fff;
+        width: auto;
+      }
     }
   }
-  &--top{
+
+  &--top {
     display: flex;
     flex-direction: row;
     gap: rem(20);
-    select{
+    @include breakpointmax($end-small){
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    select {
       border-radius: rem(20);
-      padding: rem(11);
       outline: none;
       color: #fff;
       width: rem(190);
@@ -164,50 +308,130 @@ footer {
       border: none;
       position: relative;
       z-index: 1;
-    }
-    input{
-      width: 190px;
-      border-radius: 20px;
-      border: none;
-      background: transparent;
-      outline: none;
-      color: #fff;
-      border: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       text-align: center;
     }
+
+    .glassy-select {
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right rem(2) center;
+      background-size: rem(20);
+      cursor: pointer;
+      padding: rem(11) rem(40) rem(11) rem(20);
+    }
   }
-  &--mid{
+
+  &--mid {
     display: flex;
     flex-direction: row;
     gap: rem(20);
     justify-content: center;
-    input{
-      width: 165px;
-      border: none;
-      background: transparent;
-      outline: none;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      height: 100%;
-    }
   }
-  &--bottom{
+
+  &--bottom {
     display: flex;
     flex-direction: row;
     gap: rem(20);
     justify-content: center;
-    input{
-      width: 195px;
-      border: none;
-      background: transparent;
-      outline: none;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      height: 100%;
+
+
+  }
+
+  input {
+    width: 190px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 1);
+    }
+    @include breakpointmax($end-small){
+      width: 140px;
     }
   }
+
+  .privacy-txt {
+    color: #fff;
+    @include set-typography(10, 16);
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    margin-top: rem(25);
+  }
+}
+
+.zi9{
+  z-index: 9;
+}
+
+.glassy-field {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: -webkit-fill-available;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+
+  span {
+    color: #fff;
+    @include set-typography(13, 20);
+    width: 190px;
+    @include breakpointmax($end-small){
+      width: rem(140);
+      @include set-typography(10, 18);
+    }
+  }
+
+  svg {
+    width: 22px;
+  }
+
+}
+
+.custom-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+
+  label {
+    color: #fff;
+    @include set-typography(12, 16);
+
+  }
+}
+
+.custom-checkbox:checked {
+  background-color: #fff;
+  border-color: #000;
+}
+
+.custom-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
 }
