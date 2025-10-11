@@ -10,3 +10,15 @@
 	font-size: rem(#{$fs});
 	line-height: rem(#{$lh});
 }
+
+@mixin breakpoint($break) {
+	@media screen and (min-width:$break) {
+		@content;
+	}
+}
+
+@mixin breakpointmax($break) {
+	@media screen and (max-width:$break) {
+		@content;
+	}
+}
