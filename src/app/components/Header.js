@@ -11,6 +11,7 @@ const Header = () => {
             <div className="logo">
                 <Image width="175"
                     height="66"
+                    alt='main logo'
                     src="../logos/uni-logo.svg" />
             </div>
             <div className="sub-head">
