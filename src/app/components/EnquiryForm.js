@@ -64,7 +64,7 @@ const EnquiryForm = () => {
     <div className='enquiry-form'>
       <form onSubmit={handleSubmit(onSubmit)} className="enquiry-form--container">
         <div className='enquiry-form--top'>
-          <div className='glass-card zi9'>
+          <div className='glass-card zi5'>
             <Controller
               name="service"
               control={control}
@@ -81,7 +81,7 @@ const EnquiryForm = () => {
             <p className="error">{errors.service?.message}</p>
           </div>
 
-          <div className='glass-card zi9'>
+          <div className='glass-card zi5'>
             <Controller
               name="studyLevel"
               control={control}
@@ -98,7 +98,7 @@ const EnquiryForm = () => {
             <p className="error">{errors.studyLevel?.message}</p>
           </div>
 
-          <div className='glass-card zi9'>
+          <div className='glass-card zi4'>
             <Controller
               name="country"
               control={control}
@@ -115,7 +115,7 @@ const EnquiryForm = () => {
             <p className="error">{errors.country?.message}</p>
           </div>
 
-          <div className='glass-card glass-card-2'>
+          <div className='glass-card glass-card-2 zi4'>
             <Controller
                 name="month"
                 control={control}
@@ -126,6 +126,7 @@ const EnquiryForm = () => {
                   value={field.value}
                   onChange={field.onChange}
                   error={errors.service?.message}
+                  className="month"
                 />
                 )}
               />
@@ -139,6 +140,7 @@ const EnquiryForm = () => {
                   value={field.value}
                   onChange={field.onChange}
                   error={errors.service?.message}
+                  className="year"
                 />
                 )}
               />
@@ -191,6 +193,7 @@ const EnquiryForm = () => {
           <input
             type="checkbox"
             id="agree"
+            checked
             {...register('agree')}
             className="custom-checkbox"
           />

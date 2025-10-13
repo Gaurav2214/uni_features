@@ -198,7 +198,7 @@ footer {
   }
 
   .select-dropdown {
-    width: 190px;
+    width: rem(190);
     height: -webkit-fill-available;
     position: relative;
     @include breakpointmax($end-small){
@@ -226,6 +226,24 @@ footer {
 
         &:hover {
           font-weight: 700;
+        }
+      }
+    }
+    &.month{
+      ul{
+        width: rem(190);
+        left: 0;
+        @include breakpointmax($end-small){
+          width: rem(140);
+        }
+      }
+    }
+    &.year{
+      ul{
+        width: rem(190);
+        right: 0;
+        @include breakpointmax($end-small){
+          width: rem(140);
         }
       }
     }
@@ -282,11 +300,6 @@ footer {
       flex-direction: row;
       gap: rem(6);
       align-items: center;
-
-      input {
-        background: #fff;
-        width: auto;
-      }
     }
   }
 
@@ -367,10 +380,63 @@ footer {
     gap: rem(8);
     margin-top: rem(25);
   }
+  .custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+  
+    label {
+      color: #fff;
+      @include set-typography(12, 16);
+  
+    }
+  }
+  
+  .custom-checkbox:checked {
+    background-color: #fff;
+    border-color: #000;
+  }
+  
+  .custom-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+  }
 }
 
-.zi9{
-  z-index: 9;
+.rotate-180{
+  transform: rotate(180deg);
+}
+
+.zi2{
+  z-index: 2;
+}
+.zi3{
+  z-index: 3;
+}
+.zi4{
+  z-index: 4;
+}
+.zi5{
+  z-index: 5;
+}
+.zi6{
+  z-index: 6;
 }
 
 .glassy-field {
@@ -398,40 +464,3 @@ footer {
 
 }
 
-.custom-checkbox {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 2px solid #ccc;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s ease;
-  outline: none;
-  display: flex;
-  align-items: center;
-  gap: rem(8);
-
-  label {
-    color: #fff;
-    @include set-typography(12, 16);
-
-  }
-}
-
-.custom-checkbox:checked {
-  background-color: #fff;
-  border-color: #000;
-}
-
-.custom-checkbox:checked::after {
-  content: '✓';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -52%);
-  font-size: 14px;
-  color: #000;
-  font-weight: bold;
-}

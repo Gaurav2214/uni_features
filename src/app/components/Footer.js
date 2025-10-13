@@ -6,8 +6,8 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-features">
-                {footFeatures.map((item) => (
-                    <div key={item?.title} className='fitem'>
+                {footFeatures.map((item, index) => (
+                    <div key={item?.title+'_'+index} className='fitem'>
                         <Image src={item?.icon} alt={item?.desc1} width="32" height="32" />
                         <div className='contn'>
                             <p>{item?.title}</p>
@@ -18,8 +18,8 @@ const Footer = () => {
                 ))}
             </div>
             <div className='footer-links'>
-                {footerLinks.map((item) => (
-                    <a key={item?.link} href={item?.link}>{item.name}</a>
+                {footerLinks.map((item, index) => (
+                    <a key={'link_'+index} href={item?.link}>{item.name}</a>
                 ))}
             </div>
             <div className='footer-connect'>

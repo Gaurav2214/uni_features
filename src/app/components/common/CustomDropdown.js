@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-export default function CustomDropdown({ options = [], placeholder, onChange }) {
+export default function CustomDropdown({ className, options = [], placeholder, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
   const dropdownRef = useRef(null);
@@ -10,6 +10,7 @@ export default function CustomDropdown({ options = [], placeholder, onChange }) 
     onChange?.(option);
     setIsOpen(false);
   };
+  const selectorValue = className ? className : '';
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function CustomDropdown({ options = [], placeholder, onChange }) 
   }, []);
 
   return (
-    <div className="select-dropdown" ref={dropdownRef}>
+    <div className={`select-dropdown ${selectorValue}`} ref={dropdownRef}>
 
       <div
         className={`glassy-field glassy-dropdown cursor-pointer flex justify-between items-center ${
