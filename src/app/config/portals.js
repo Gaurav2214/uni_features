@@ -1,11 +1,11 @@
 // Portal configuration for multi-tenant setup
 export const PORTAL_CONFIG = {
     'unifeatures.com': {
-      name: 'Auto Portal',
+      name: 'UniFeatures',
       theme: {
         primaryColor: '#2563eb',
         secondaryColor: '#1e40af',
-        logo: '/logos/auto-logo.svg',
+        logo: '/logos/uni-logo.svg',
         favicon: '/favicons/favicon.ico'
       },
       features: {
@@ -13,12 +13,87 @@ export const PORTAL_CONFIG = {
         slimHeader: false,
       },
       seo: {
-        title: 'Auto Portal - Your Auto Solutions',
-        description: 'Find the best auto solutions and services',
-        keywords: 'auto, cars, vehicles, automotive'
+        title: 'UniFeatures | Your Trusted Educational Consultant',
+        description: 'UniFeatures offers expert guidance for students seeking higher education opportunities in all over globe. From personalized course advice to application assistance, we help you navigate your academic journey with ease.',
+        keywords: 'educational consultant India, Hyderabad, study abroad advice, university application assistance, student counseling services, higher education guidance, UniFeatures'
       },
       api: {
-        baseUrl: process.env.AUTO_API_URL || 'https://api.auto.com',
+        baseUrl: 'https://unifeatures.com',
+        endpoints: {
+          products: '/products',
+          categories: '/categories'
+        }
+      }
+    },
+    'applyunihomes.com': {
+      name: 'ApplyUniHomes',
+      theme: {
+        primaryColor: '#2563eb',
+        secondaryColor: '#1e40af',
+        logo: '/logos/homes-logo.svg',
+        favicon: '/favicons/favicon.ico'
+      },
+      features: {
+        showAds: true,
+        slimHeader: false,
+      },
+      seo: {
+        title: 'ApplyUniHomes | Student Housing Solutions Near Your University',
+        description: 'Find affordable and convenient student housing options near your university with ApplyUniHomes. Browse verified listings, compare prices, and secure your ideal accommodation hassle-free.',
+        keywords: 'student housing, university accommodations, student apartments, campus housing, off-campus housing, student rentals, university dorms, student living near university'
+      },
+      api: {
+        baseUrl: 'https://applyunihomes.com',
+        endpoints: {
+          products: '/products',
+          categories: '/categories'
+        }
+      }
+    },
+    'applyunijobs.com': {
+      name: 'ApplyUniJobs',
+      theme: {
+        primaryColor: '#2563eb',
+        secondaryColor: '#1e40af',
+        logo: '/logos/jobs-logo.svg',
+        favicon: '/favicons/favicon.ico'
+      },
+      features: {
+        showAds: true,
+        slimHeader: false,
+      },
+      seo: {
+        title: 'ApplyUniJobs | University Student Job Portal',
+        description: 'Discover part-time, internship, and full-time job opportunities tailored for university students. ApplyUniJobs connects students with employers seeking academic-driven talent.',
+        keywords: 'university student jobs, student internships, part-time jobs for students, campus employment, student job portal, academic internships, university career opportunities'
+      },
+      api: {
+        baseUrl: 'https://applyunijobs.com/',
+        endpoints: {
+          products: '/products',
+          categories: '/categories'
+        }
+      }
+    },
+    'applyuniloans.com': {
+      name: 'ApplyUniLoans',
+      theme: {
+        primaryColor: '#2563eb',
+        secondaryColor: '#1e40af',
+        logo: '/logos/loans-logo.svg',
+        favicon: '/favicons/favicon.ico'
+      },
+      features: {
+        showAds: true,
+        slimHeader: false,
+      },
+      seo: {
+        title: 'ApplyUniLoans | Hassle-Free Education Loans for Studying Abroad',
+        description: 'Get easy and quick education loans for studying abroad with ApplyUniLoans. Compare lenders, check eligibility, and secure your student loan with expert guidance — all in one place.',
+        keywords: 'education loan, student loan, study abroad loan, overseas education finance, university loan, student financial aid, apply for education loan, study loan India, loan for international students'
+      },
+      api: {
+        baseUrl: 'https://applyuniloans.com/',
         endpoints: {
           products: '/products',
           categories: '/categories'
@@ -48,7 +123,7 @@ export const PORTAL_CONFIG = {
         keywords: 'development, test, local'
       },
       api: {
-        baseUrl: process.env.LOCAL_API_URL || 'http://localhost:3001',
+        baseUrl: process.env.LOCAL_API_URL || 'http://localhost:3000',
         endpoints: {
           products: '/api/products',
           categories: '/api/categories'
