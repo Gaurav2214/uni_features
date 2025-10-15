@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
         // Email to admin
         await transporter.sendMail({
-            from: `"Student Enquiry"`,
+            from: `"Student Enquiry" <no-reply@applyuninow.com>`,
             to: process.env.ADMIN_EMAIL,
             subject: 'New Enquiry Received',
             text: `New enquiry from ${firstName} ${lastName}\nEmail: ${email}\nMobile: ${mobile}\nService: ${service}\nStudy Level: ${studyLevel}\nCountry: ${country}\nDate: ${month}-${year}`,
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
         // Confirmation email to user
         await transporter.sendMail({
-            from: `"AUN Tech Consulting Pvt Ltd" <${process.env.SMTP_USER}>`,
+            from: '"AUN Tech Consulting Pvt Ltd" <no-reply@applyuninow.com>',
             to: email,
             subject: 'Enquiry Received',
             text: `Hi ${firstName},\n\nWe have received your enquiry. Our team will contact you soon.\n\nThank you!`,
