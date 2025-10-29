@@ -30,6 +30,7 @@ header {
   align-items: center;
   @include breakpointmax($end-small){
     gap: 26px;
+    padding-top: rem(30);
   }
 
   .sub-head {
@@ -52,9 +53,12 @@ header {
     @include breakpointmax($end-small){
       flex-wrap: wrap;
       justify-content: center;
-      column-gap: 50px;
+      column-gap: 0;
       row-gap: 30px;
       a{
+        width: 44%;
+        display: flex;
+        justify-content: center;
         img{
           height: auto;
         }
@@ -65,6 +69,9 @@ header {
 
 footer {
   margin-top: rem(70);
+  @include breakpointmax($end-small){
+    margin-top: rem(40);
+  } 
 
   .footer-features {
     display: flex;
@@ -120,6 +127,7 @@ footer {
       row-gap: rem(12);
       column-gap: rem(20);
       text-align: center;
+      margin-top: rem(40);
       a{
         @include set-typography(8, 15);
         &:nth-child(1), &:nth-child(2), &:nth-child(3){
@@ -135,6 +143,7 @@ footer {
     gap: rem(40);
     justify-content: center;
     margin-top: rem(20);
+    color: #fff;
 
     div {
       color: #fff;
@@ -145,6 +154,7 @@ footer {
       flex-wrap: wrap;
       column-gap: rem(16);
       row-gap: rem(8);
+      flex-direction: column;
       div{
         text-align: center;
         &:first-child{
@@ -161,6 +171,9 @@ footer {
     display: flex;
     justify-content: center;
     margin-bottom: rem(50);
+    @include breakpointmax($end-small){
+      margin-top: rem(9);
+    }
   }
 }
 
@@ -202,7 +215,7 @@ footer {
     height: -webkit-fill-available;
     position: relative;
     @include breakpointmax($end-small){
-      width: rem(140);
+      width: rem(144);
     }
 
     ul {
@@ -255,7 +268,7 @@ footer {
         width: rem(52);
       }
       @include breakpointmax($end-small){
-        width: rem(70);
+        width: rem(72);
       }
     }
   }
