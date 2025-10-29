@@ -24,7 +24,9 @@ const Footer = () => {
             </div>
             <div className='footer-connect'>
                 {footerConnect.map((item) => (
-                    <div key={item}>{item}</div>
+                    <div style={{ textDecoration: "none", color: "inherit" }} key={item}>
+                        {item}
+                    </div>
                 ))}
             </div>
             <div className='tag_line'>Crafted by AUN Tech Consulting Pvt. Ltd.</div>
