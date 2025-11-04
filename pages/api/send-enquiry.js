@@ -13,8 +13,8 @@ export default async function handler(req, res) {
             port: 465,
             secure: true,
             auth: {
-                user: 'teck.gaurav@gmail.com',
-                pass: 'kekxtcrgkdolldeq',
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
             },
         });
 
