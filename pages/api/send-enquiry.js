@@ -9,14 +9,13 @@ export default async function handler(req, res) {
 
     try {
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: Number(process.env.SMTP_PORT) === 465,
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
+                user: 'teck.gaurav@gmail.com',
+                pass: 'kekxtcrgkdolldeq',
             },
-            tls: { rejectUnauthorized: false },
         });
 
         // Email to admin
