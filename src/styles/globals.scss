@@ -159,6 +159,10 @@ footer {
       color: #fff;
       text-decoration: none;
       @include set-typography(12, 18);
+      a{
+        color: #fff;
+        text-decoration: none;
+      }
     }
     @include breakpointmax($end-small){
       flex-wrap: wrap;
@@ -167,6 +171,10 @@ footer {
       flex-direction: column;
       div{
         text-align: center;
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
         &:first-child{
           width: 100%;
         }
