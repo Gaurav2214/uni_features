@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
         // Confirmation email to user
         await transporter.sendMail({
-            from: `"AUN Tech Consulting Pvt Ltd" <${process.env.ADMIN_EMAIL}>`,
+            from: `"ApplyUniNow" <${process.env.ADMIN_EMAIL}>`,
             to: email,
             subject: 'Enquiry Received',
             text: `Hi ${firstName},\n\nWe have received your enquiry. Our team will contact you soon.\n\nThank you!`,
