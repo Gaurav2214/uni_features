@@ -17,12 +17,14 @@ import experience from "../../../public/images/Vector-8.svg";
 export const portalsLogos = [
     {
         'name': 'applyUniNow',
+        'title': 'Now',
         'logo': applyUniNow,
         'url': 'https://applyuninow.com/',
         'width': '200',
         'mwidth': '100',
     },
     {
+        'title': 'Loans',
         'name': 'applyUniLoans',
         'logo': applyUniLoans,
         'url': 'https://applyuniloans.com/',
@@ -30,6 +32,7 @@ export const portalsLogos = [
         'width': '230',
     },
     {
+        'title': 'Homes',
         'name': 'applyUniHomes',
         'logo': applyUniHomes,
         'url': 'https://applyunihomes.com/',
@@ -37,6 +40,7 @@ export const portalsLogos = [
         'width': '250',
     },
     {
+        'title': 'Jobs',
         'name': 'applyUniJobs',
         'logo': applyUniJobs,
         'url': 'https://applyunijobs.com/',
