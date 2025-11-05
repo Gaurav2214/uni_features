@@ -19,8 +19,9 @@ const Header = () => {
             </div>
             <div className="portals-logo">
                 {portalsLogos.map((item) => (
-                    <a key={item?.name} href={item?.url} target="_black">
-                        <Image src={item?.logo} alt={item?.name} width={portalConfig?.deviceType == 'mobile' ? item?.mwidth : item?.width} height="60" />
+                    <a key={item?.name} href={item?.url} target="_black" className="my-audiowide-text">
+                        {/* <Image src={item?.logo} alt={item?.name} width={portalConfig?.deviceType == 'mobile' ? item?.mwidth : item?.width} height="60" /> */}
+                        ApplyUni<span>{item?.title}</span>
                     </a>
                 ))}
             </div>
