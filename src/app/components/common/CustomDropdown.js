@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-export default function CustomDropdown({ className, options = [], placeholder, onChange }) {
+export default function CustomDropdown({ className, options = [], placeholder, value, onChange, error }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
   const dropdownRef = useRef(null);
@@ -11,6 +11,15 @@ export default function CustomDropdown({ className, options = [], placeholder, o
     setIsOpen(false);
   };
   const selectorValue = className ? className : '';
+
+  // Sync internal state when external value changes (supports reset())
+  useEffect(() => {
+    if (typeof value === "string") {
+      setSelected(value || "");
+    } else if (value == null) {
+      setSelected("");
+    }
+  }, [value]);
 
   // Close dropdown on outside click
   useEffect(() => {

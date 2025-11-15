@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function EntryPopup() {
     const [show, setShow] = useState(false);
@@ -6,6 +6,7 @@ export default function EntryPopup() {
         "Hey there! We're working behind the scenes.",
         "We’ll be back better than ever."
     ]);
+    const closeTimerRef = useRef(null);
 
     useEffect(() => {
         const popupData = localStorage.getItem("entry_popup_closed");
@@ -18,6 +19,19 @@ export default function EntryPopup() {
         }
 
         setShow(true);
+
+        if (closeTimerRef.current) {
+            clearTimeout(closeTimerRef.current);
+        }
+        closeTimerRef.current = setTimeout(() => {
+            setShow(false);
+        }, 10000);
+
+        return () => {
+            if (closeTimerRef.current) {
+                clearTimeout(closeTimerRef.current);
+            }
+        }
     }, []);
 
     useEffect(() => {
@@ -30,6 +44,12 @@ export default function EntryPopup() {
                 setMessages(nextMessages);
             }
             setShow(true);
+            if (closeTimerRef.current) {
+                clearTimeout(closeTimerRef.current);
+            }
+            closeTimerRef.current = setTimeout(() => {
+                setShow(false);
+            }, 10000);
         };
         window.addEventListener("open-entry-popup", handleOpen);
         return () => window.removeEventListener("open-entry-popup", handleOpen);
@@ -37,6 +57,9 @@ export default function EntryPopup() {
 
     const closePopup = () => {
         setShow(false);
+        if (closeTimerRef.current) {
+            clearTimeout(closeTimerRef.current);
+        }
 
         localStorage.setItem(
             "entry_popup_closed",
@@ -50,6 +73,7 @@ export default function EntryPopup() {
 
     return (
         <div className="popup-overlay">
+            {/* <div class="texture-overlay"></div> */}
             <div className="popup-box">
 
                 {messages.map((line, idx) => (
