@@ -52,6 +52,16 @@ const EnquiryForm = () => {
 
       const result = await res.json();
       setMessage(result.message);
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('open-entry-popup', {
+          detail: {
+            messages: [
+              'Thank you for the details &',
+              'Guaranteed response within 12 hours.'
+            ]
+          }
+        }));
+      }
       reset();
     } catch (err) {
       console.error(err);

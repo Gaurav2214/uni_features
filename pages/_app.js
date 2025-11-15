@@ -9,6 +9,7 @@ import { getPortalConfigByDomain } from '../src/app/config/portals';
 import PortalWrapper from "@/app/components/PortalWrapper";
 import "../src/styles/globals.scss";
 import { Poppins, Audiowide } from "next/font/google";
+import EntryPopup from "@/app/components/EntryPopup";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -72,6 +73,7 @@ function MyApp({ Component, pageProps, portalConfig }) {
                                     <PortalWrapper>
                                         <PageLabelUpdater />
                                         <Layout>
+                                            <EntryPopup />
                                             <Component {...pageProps} />
                                         </Layout>
                                     </PortalWrapper>
