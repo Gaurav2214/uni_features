@@ -36,6 +36,18 @@ const EnquiryForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: {
+      service: '',
+      studyLevel: '',
+      country: '',
+      month: '',
+      year: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobile: '',
+      agree: true
+    },
   });
 
   const [loading, setLoading] = useState(false);
