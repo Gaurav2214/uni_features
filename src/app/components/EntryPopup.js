@@ -18,6 +18,14 @@ export default function EntryPopup() {
         }
 
         setShow(true);
+
+        const timer = setTimeout(() => {
+            //setShow(false);
+          }, 10000);
+
+        return () => {
+            clearTimeout(timer);
+        }
     }, []);
 
     useEffect(() => {
@@ -50,6 +58,7 @@ export default function EntryPopup() {
 
     return (
         <div className="popup-overlay">
+            {/* <div class="texture-overlay"></div> */}
             <div className="popup-box">
 
                 {messages.map((line, idx) => (
