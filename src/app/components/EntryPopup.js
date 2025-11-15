@@ -73,7 +73,7 @@ export default function EntryPopup() {
 
     return (
         <div className="popup-overlay">
-            {/* <div class="texture-overlay"></div> */}
+            <div className="noise-bg"></div>
             <div className="popup-box">
 
                 {messages.map((line, idx) => (
